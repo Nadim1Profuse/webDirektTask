@@ -11,6 +11,7 @@ const TableRow = (props) => {
       <td>{props.srNo}</td>
       <td>{props.fName}</td>
       <td>{props.lName}</td>
+      <td>{props.add1}</td>
       <td>{props.phone}</td>
       <td>{props.country}</td>
       <td>{props.email}</td>

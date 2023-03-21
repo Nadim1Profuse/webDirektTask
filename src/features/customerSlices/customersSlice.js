@@ -24,9 +24,40 @@ const CustomerSlice = createSlice({
         (val, i) => i !== parseInt(payload.index)
       );
     },
+
+    sortByFirstName: (state, { payload }) => {
+      console.log("in firstname sorting payload=", payload);
+      if (payload) {
+        state.customers = state.customers.sort((a, b) =>
+          a.fName > b.fName ? 1 : -1
+        );
+      } else {
+        state.customers = state.customers.sort((a, b) =>
+          a.fName < b.fName ? 1 : -1
+        );
+      }
+    },
+
+    sortByAdd1: (state, { payload }) => {
+      console.log("sortByAdd1 payload=", payload);
+      if (payload) {
+        state.customers = state.customers.sort((a, b) =>
+          a.add1 > b.add1 ? 1 : -1
+        );
+      } else {
+        state.customers = state.customers.sort((a, b) =>
+          a.add1 < b.add1 ? 1 : -1
+        );
+      }
+    },
   },
 });
 
-export const { addCustomer, updateCustomer, deleteCustomer } =
-  CustomerSlice.actions;
+export const {
+  addCustomer,
+  updateCustomer,
+  deleteCustomer,
+  sortByFirstName,
+  sortByAdd1,
+} = CustomerSlice.actions;
 export default CustomerSlice.reducer;
